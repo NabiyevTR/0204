@@ -1,57 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SeparatorMenuItem?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml/1"
-            xmlns="http://javafx.com/javafx/15.0.1" fx:controller="chat.Controller"
-            fx:id="borderPane">
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane stylesheets="css/style.css"
+            xmlns="http://javafx.com/javafx/10.0.2-internal"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="chat.Controller">
     <top>
         <MenuBar>
             <Menu text="File">
                 <MenuItem text="Account"/>
                 <MenuItem text="Settings"/>
                 <SeparatorMenuItem/>
-                <MenuItem text="Exit" fx:id="exitItem"  onAction="#menuExit"/>
+                <MenuItem fx:id="exitItem" onAction="#menuExit" text="Exit"/>
             </Menu>
             <Menu text="Edit">
-                <MenuItem text="Copy" fx:id="copyItem" onAction="#menuCopy"/>
-                <MenuItem text="Paste" fx:id="pasteItem" onAction="#menuPaste"/>
+                <MenuItem fx:id="copyItem" onAction="#menuCopy" text="Copy"/>
+                <MenuItem fx:id="pasteItem" onAction="#menuPaste" text="Paste"/>
             </Menu>
             <Menu text="Help"/>
         </MenuBar>
     </top>
-
     <center>
-        <VBox>
-            <TextArea fx:id="messagesArea" editable="false" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-            <HBox >
-
-                    <TextField fx:id="newMessageArea"
-                               prefHeight="20"
-                               promptText="Print message"
-                               onAction="#sendMessage"
-                    />
-                    <Button onAction="#sendMessage"
-                            text="Send"
-                    style="-fx-padding: 3 10 3 10;"/>
-
-
-
-
-            </HBox>
-        </VBox>
-
+        <AnchorPane>
+            <TextArea fx:id="messagesArea" editable="false"
+                      AnchorPane.leftAnchor="20.0"
+                      AnchorPane.rightAnchor="20.0"
+                      AnchorPane.topAnchor="20.0"
+                      AnchorPane.bottomAnchor="60.0"
+            />
+            <TextField fx:id="newMessageArea"
+                       onAction="#sendMessage"
+                       prefHeight="18"
+                       promptText="Print message"
+                       AnchorPane.bottomAnchor="20.0"
+                       AnchorPane.leftAnchor="20.0"
+                       AnchorPane.rightAnchor="80.0"
+            />
+            <Button onAction="#sendMessage"
+                    text="Send"
+                    AnchorPane.bottomAnchor="20.0"
+                    AnchorPane.rightAnchor="20.0"
+            />
+        </AnchorPane>
     </center>
-    <bottom>
-
-    </bottom>
 </BorderPane>

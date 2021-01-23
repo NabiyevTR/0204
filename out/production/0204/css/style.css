@@ -1,0 +1,28 @@
+.root {
+    -fx-font-size: 14;
+    -fx-background-image: url("https://cdn.pixabay.com/photo/2016/12/15/20/21/texture-1909992_1280.jpg");
+    /*-fx-min-width: 300;*/
+}
+
+.menu {
+    -fx-background-color: aquamarine;
+}
+
+.menu:hover {
+    -fx-background-color: coral;
+}
+
+.button {
+    -fx-background-color: aquamarine;
+}
+
+.button:hover {
+    -fx-background-color: coral;
+    -fx-font-size: 15;
+}
+
+.text-area {
+    -fx-background-color: #76b1b1;
+    -fx-control-inner-background: #76b1b1;
+    -fx-text-fill: #2c008b;
+}

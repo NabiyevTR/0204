@@ -15,7 +15,7 @@ public class Main extends Application {
         Controller controller = fxmlLoader.getController() ;
         controller.setStage(primaryStage);
         primaryStage.setTitle("Chat");
-        primaryStage.setScene(new Scene(root, 640, 480));
+        primaryStage.setScene(new Scene(root, 500, 480));
         primaryStage.show();
     }
 

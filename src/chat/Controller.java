@@ -13,12 +13,12 @@ import javafx.stage.Stage;
 import java.awt.*;
 import java.awt.datatransfer.*;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Controller {
 
-
-    @FXML
-    private BorderPane borderPane;
     @FXML
     private MenuItem exitItem;
     @FXML
@@ -31,14 +31,16 @@ public class Controller {
     private TextField newMessageArea;
     private Stage stage;
 
+    private String userName = "JavaStudent";
+
     public void setStage(Stage stage) {
         this.stage = stage;
+        this.stage.setMinWidth(300);
+        this.stage.setMaxHeight(400);
     }
 
     @FXML
     void initialize() {
-
-
         exitItem.setAccelerator(KeyCombination.keyCombination("Ctrl+X"));
         copyItem.setAccelerator(KeyCombination.keyCombination("Ctrl+C"));
         pasteItem.setAccelerator(KeyCombination.keyCombination("Ctrl+V"));
@@ -46,7 +48,13 @@ public class Controller {
 
     @FXML
     public void sendMessage(ActionEvent actionEvent) {
-        messagesArea.appendText(newMessageArea.getText() + "\n");
+        messagesArea.appendText(
+                String.format(
+                        "%s %s: %s\n",
+                        userName,
+                        new SimpleDateFormat("HH:mm").format(new Date()),
+                        newMessageArea.getText()
+                ));
         newMessageArea.clear();
         newMessageArea.requestFocus();
     }
@@ -67,6 +75,7 @@ public class Controller {
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
         clipboard.setContents(stringSelection, null);
     }
+
     @FXML
     public void menuPaste(ActionEvent actionEvent) {
         Clipboard c = Toolkit.getDefaultToolkit().getSystemClipboard();
