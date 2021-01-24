@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane stylesheets="css/style.css" xmlns="http://javafx.com/javafx/10.0.2-internal"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="chat.Controller">
+    <top>
+        <MenuBar>
+            <Menu text="File">
+                <MenuItem text="Account"/>
+                <MenuItem text="Settings"/>
+                <SeparatorMenuItem/>
+                <MenuItem fx:id="exitItem" onAction="#menuExit" text="Exit"/>
+            </Menu>
+            <Menu text="Edit">
+                <MenuItem fx:id="copyItem" onAction="#menuCopy" text="Copy"/>
+                <MenuItem fx:id="pasteItem" onAction="#menuPaste" text="Paste"/>
+            </Menu>
+            <Menu text="Help"/>
+        </MenuBar>
+    </top>
+    <center>
+        <AnchorPane>
+            <TextArea fx:id="messagesArea" editable="false"
+                      AnchorPane.leftAnchor="20.0"
+                      AnchorPane.rightAnchor="20.0"
+                      AnchorPane.topAnchor="20.0"
+                      AnchorPane.bottomAnchor="60.0"
+            />
+
+
+            <TextField fx:id="newMessageArea"
+                       onAction="#sendMessage"
+                       prefHeight="18"
+                       promptText="Print message"
+                       AnchorPane.bottomAnchor="20.0"
+                       AnchorPane.leftAnchor="20.0"
+                       AnchorPane.rightAnchor="80.0"/>
+            <Button onAction="#sendMessage"
+                    text="Send"
+                    AnchorPane.bottomAnchor="20.0"
+                    AnchorPane.rightAnchor="20.0"
+            />
+        </AnchorPane>
+
+    </center>
+
+
+</BorderPane>
